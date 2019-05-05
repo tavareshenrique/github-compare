@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Repository } from './style';
+import { Container, Repository, Button } from './style';
 
-const CompareList = ({ repositories }) => (
+const CompareList = ({
+  repositories, removeRepo, updateRepo, loadUpdate,
+}) => (
   <Container>
     {repositories.map(repository => (
       <Repository key={repository.id}>
@@ -26,6 +28,12 @@ const CompareList = ({ repositories }) => (
             {repository.lastCommit} <small>last commit</small>
           </li>
         </ul>
+        <Button button="remove" onClick={() => removeRepo(repository.name)}>
+          Delete
+        </Button>
+        <Button button="update" onClick={() => updateRepo(repository.name, repository.full_name)}>
+          {loadUpdate ? <i className="fa fa-spinner fa-pulse" /> : 'Update'}
+        </Button>
       </Repository>
     ))}
   </Container>

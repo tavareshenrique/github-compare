@@ -58,3 +58,14 @@ export const Repository = styled.div`
     }
   }
 `;
+export const Button = styled.button`
+  background-color: ${props => (props.button === 'remove' ? '#ff414c' : '#2955cf')};
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+`;
